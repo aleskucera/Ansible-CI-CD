@@ -5,4 +5,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: ansible-playbook -i inventory playbook.yml
+#      - run: ansible-playbook -i inventory playbook.yml
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          # Required, playbook filepath
+          playbook: playbook.yml
+          # Optional, SSH private key
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          inventory: |
+            [servers]
+            crp.vm.cesnet.cz
+            
+            [servers:vars]
+            ansible_python_interpreter=/usr/bin/python3
+            ansible_user=root
+
+          options: |
+            --inventory .inventory
+            --limit servers
+            --extra-vars hello=there
+            --verbose
