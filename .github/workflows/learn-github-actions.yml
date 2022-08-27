@@ -12,6 +12,6 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           options: |
             --inventory inventory
-            --limit localhost
+            --limit test_servers
             --extra-vars hello=there
             --verbose
