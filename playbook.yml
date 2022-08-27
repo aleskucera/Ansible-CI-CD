@@ -1,6 +1,5 @@
 ---
   - hosts: all
-    become: yes
 #    become: yes
 #    vars:
 #      ansible_become_pass: "password123"
@@ -17,4 +16,5 @@
           owner: root
           group: root
           recurse: yes
+        become: yes
 
