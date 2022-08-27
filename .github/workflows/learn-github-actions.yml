@@ -13,4 +13,5 @@ jobs:
           options: |
             --inventory inventory
             --limit test_servers
+            --extra-vars hello=local
             --verbose
