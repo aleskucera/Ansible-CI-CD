@@ -1,0 +1,13 @@
+name: Deploy ansible
+
+on: [push]
+
+jobs:
+  build:
+    uses: saubermacherag/ansible-playbook-docker-action:latest
+    with:
+      playbookName: 'playbook.yml'
+      inventoryFile: 'inventory'
+      keyFile: ".ansible/id_rsa"
+      keyFileVaultPass: ${{ secrets.KEYFILE_VAULT_PASS }}
+      verbosity: "vvvv"
