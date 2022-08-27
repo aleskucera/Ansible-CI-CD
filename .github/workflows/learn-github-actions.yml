@@ -10,8 +10,8 @@ jobs:
         with:
           playbook: playbook.yml
           key: ${{secrets.SSH_PRIVATE_KEY}}
-          options: |
+#          options: |
 #            --inventory inventory
 #            --limit test_servers
 #            --extra-vars hello=there
-            --verbose
+#            --verbose
