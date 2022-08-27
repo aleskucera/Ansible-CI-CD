@@ -1,14 +1,18 @@
 ---
-  - hosts: servers
+  - hosts: all
 #    become: yes
 #    vars:
 #      ansible_become_pass: "password123"
     tasks:
       - name: Create directory
         file:
-          path: /home/ansible_user/test-directory
+          path: /root/test-directory
           state: directory
           mode: 0755
           owner: root
           group: root
           recurse: yes
+
+      - name: Print
+        debug:
+          msg: "Hello World"
